@@ -16,9 +16,12 @@
                 phoneBook.Add(new Contact("Сергей", "Брин", 799900000013, "serg@example.com"));
                 phoneBook.Add(new Contact("Иннокентий", "Смоктуновский", 799900000013, "innokentii@example.com"));
 
-                phoneBook
+                var people = phoneBook
+                    .OrderBy(s => s.Name)
+                    .ThenBy(s => s.LastName);
 
-
+                foreach (var person in people)
+                    Console.WriteLine(person.Name +" "+ person.LastName + " Номер:" + person.PhoneNumber + " Mail:" + person.Email);
 
             }
         }
